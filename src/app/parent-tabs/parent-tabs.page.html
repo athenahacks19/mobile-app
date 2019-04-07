@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>parentTabs</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
 
-<ion-content>
+  <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button tab="parent-tab1">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
 
-</ion-content>
+    <ion-tab-button tab="parent-tab2">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Feed</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="parent-tab3">
+      <ion-icon name="settings"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
