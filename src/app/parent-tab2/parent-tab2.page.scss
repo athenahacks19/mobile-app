@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../../assets/montserrat/montserrat-light-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ion-content{
+    --background: var(--ion-background-color,linear-gradient(#ffffff, #b1d6ff));
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0 10px 20px 10px;
+    font-family: 'Montserrat';
+    color: #467aff;
+    text-align:center
+}
+
+#time{
+    --background: #467aff;
+    max-width: 35%;
+    display: inline-block;
+    margin: 5px
+}
+
+#activity{
+    --background: #467aff;
+    max-width: 55%;
+    display: inline-block;
+    margin: 5px
+}
+
+ion-input{
+    --color: white
+}

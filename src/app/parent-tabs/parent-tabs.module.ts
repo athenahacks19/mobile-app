@@ -14,7 +14,6 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
     FormsModule,
     IonicModule,
     TabsPageRoutingModule
-    // TabsPageRoutingModule
   ],
   declarations: [ParentTabsPage]
 })
