@@ -11,6 +11,7 @@ import { User } from '../interfaces';
 })
 export class ParentTab1Page implements OnInit {
   map: atlas.Map;
+  patientMarker: atlas.HtmlMarker;
 
   constructor(
     private dataService: DataService
@@ -27,17 +28,29 @@ export class ParentTab1Page implements OnInit {
       autoResize: true
     });
 
-    this.getUser();
-    setInterval(() => {
+    this.map.events.add('ready', () => {
+      this.patientMarker = new atlas.HtmlMarker({
+        color: 'DodgerBlue',
+        position: [0, 0]
+      });
+      this.map.markers.add(this.patientMarker);
       this.getUser();
-    }, 1000);
+      setInterval(() => {
+        this.getUser();
+      }, 1000);
+    });
   }
 
   getUser() {
     this.dataService.get('1234')
     .then((user: User) => {
+      const lat = Number(user.location.lat);
+      const lon = Number(user.location.lon);
+      this.patientMarker.setOptions({
+        position: [lon, lat]
+      });
       this.map.setCamera({
-        center: [ Number(user.location.lon), Number(user.location.lat) ]
+        center: [lon, lat]
       });
     });
   }
