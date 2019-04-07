@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
+  <div>
+    <h1>Create a Schedule</h1>
+  </div>
+  <div *ngFor="let row of rows; let i = index" style="text-align: center">
+      <ion-input [(ngModel)]="rows[i].time" placeholder="Time" id="time" name="time"></ion-input>
+      <ion-input [(ngModel)]="rows[i].activity" placeholder="Activity" id="activity" name="time"></ion-input>
+      <input onclick="addRow(this.form);" type="button"/>
+  </div>
+  <ion-button fill=clear (click)="addRow()">+ Add more</ion-button>
+  <br>
+  <ion-button (click)="submit()" type=submit>Submit Schedule</ion-button>
 
 </ion-content>

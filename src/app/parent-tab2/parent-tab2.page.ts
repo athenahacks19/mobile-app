@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-tab2.page.scss'],
 })
 export class ParentTab2Page implements OnInit {
+  rows: any[] = [{}];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addRow() {
+    this.rows.push({});
+  }
+
+  submit() {
+    console.log(this.rows)
   }
 
 }
