@@ -1,10 +1,38 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
-  <ion-button routerLink="/parent">Login as Parent</ion-button>
-  <ion-button routerLink="/patient">Login as Patient</ion-button>
+<ion-content class="bg-style">
+
+  <div class="logo">
+    <img src="../../assets/puzzle3.png" alt="Logo" id="logo" style="width:40%;height:auto;">
+  </div>
+
+  <div class="app-title">
+    <h1>app title</h1>
+  </div>
+
+  <form>
+    <div class="form">
+      <label for="username"></label>
+      <input name="username" id="username" type="text" placeholder="Username" required>
+    </div>
+    <!-- <br> -->
+    <div class="form">
+        <label for="password"></label>
+        <input id="password" type="password" placeholder="Password">
+    </div>
+  </form>
+
+  <div class="login">
+    <ion-button routerLink="/parent" fill="clear">Login as <br/>Parent</ion-button>
+    <ion-button routerLink="/patient" fill="clear">Login as <br/>Patient</ion-button>
+  </div>
+
+  <div>
+  <ion-button routerLink="" fill="clear" style="position:absolute; bottom: 10px;">Don't have an account? <br/>Sign up</ion-button>
+  </div>
+
 </ion-content>
