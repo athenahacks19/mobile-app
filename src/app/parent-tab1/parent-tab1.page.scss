@@ -38,6 +38,10 @@ ion-content{
       font-size: 32px;
       opacity: 0.625;
     }
+
+    .heartrate-high {
+      color: red;
+    }
   }
 
   .second {
@@ -50,6 +54,14 @@ ion-content{
     .status {
       font-size: 32px;
       opacity: 0.625;
+    }
+
+    .status-anxious {
+      color: red;
+    }
+
+    .status-good {
+      color: green;
     }
   }
 }

@@ -12,7 +12,7 @@ import { User } from '../interfaces';
 export class ParentTab1Page implements OnInit {
   map: atlas.Map;
   patientMarker: atlas.HtmlMarker;
-  heartRate: string;
+  heartRate: number;
   anxious = false;
 
   constructor(
@@ -57,7 +57,7 @@ export class ParentTab1Page implements OnInit {
         });
       }
       if (user.bpm) {
-        this.heartRate = user.bpm;
+        this.heartRate = Number(user.bpm);
       }
       this.anxious = user.alert;
     });

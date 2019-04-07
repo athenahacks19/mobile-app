@@ -10,12 +10,14 @@
     <div class="info-container">
       <div class="column first">
         <ion-icon name="heart" color="danger"></ion-icon>
-        <span class="heartrate">{{ heartRate }}</span>
+        <span class="heartrate" [class.heartrate-high]="heartRate >= 100">{{ heartRate }}</span>
       </div>
 
       <div class="column second">
         <img [src]="anxious ? 'assets/bad.png' : 'assets/good.png'">
-        <span class="status">{{ anxious ? 'Anxious' : 'Good' }}</span>
+        <span class="status" [class.status-anxious]="anxious">
+          {{ anxious ? 'Anxious' : 'Good' }}
+        </span>
       </div>
     </div>
   </div>
