@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../../assets/montserrat/montserrat-light-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ion-content{
+    // --background: var(--ion-background-color,linear-gradient(#ffffff, #b1d6ff));
+    --background: var(--ion-background-color,#cdddf8);
+}
+
+ion-button, ion-textarea, ion-item, ion-label {
+    font-family: Montserrat-regular;
+}
+
+ion-item{
+    --background: white;
+    --border-color: rgb(0, 0, 0);
+    --border-radius: 25px;
+    --border-style: solid;
+    --border-width: 0px;
+    // --box-shadow: 2px 2px 10px grey;
+    margin-bottom: 10px
+}
+
+ion-button{
+    --background: transparent;
+    --box-shadow: 0px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    max-width: 40%;
+    margin: 0 auto;
+    --color: black
+}
+
+.button-inner{
+    padding: -5px;
+}
+
+.emoji{
+    text-align: center;
+    margin-top: 20px;
+}

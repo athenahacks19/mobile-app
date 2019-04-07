@@ -12,7 +12,7 @@ ion-content{
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     margin: 0 10px 20px 10px;
     font-family: 'Montserrat';
     color: #467aff;
@@ -23,16 +23,45 @@ h1 {
     --background: #467aff;
     max-width: 35%;
     display: inline-block;
-    margin: 5px
+    margin: 5px;
+    border: 1px solid #467aff;
+    border-radius: 25px;
 }
 
 #activity{
     --background: #467aff;
     max-width: 55%;
     display: inline-block;
-    margin: 5px
+    margin: 5px;
+    border: 1px solid #467aff;
+    border-radius: 25px;
 }
 
 ion-input{
-    --color: white
+    --color: white;
+    padding: 5px;
+    padding-left: 0
+}
+
+input{
+    position: absolute;
+}
+
+.button-inner{
+    justify-content:flex-end;
+}
+
+button.button-native{
+    padding-right: 3px
+}
+
+#submit{
+    --background: transparent;
+    --box-shadow: 0px;
+    border: 1px solid #467aff;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 5px;
+    color: #467aff;
+    font-family: 'Montserrat'
 }
