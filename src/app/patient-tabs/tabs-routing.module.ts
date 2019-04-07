@@ -39,6 +39,16 @@ const routes: Routes = [
             ]
         },
         {
+          path: 'patient-tab4',
+          children:
+            [
+              {
+                path: '',
+                loadChildren: '../patient-tab4/patient-tab4.module#PatientTab4PageModule'
+              }
+            ]
+        },
+        {
           path: '',
           redirectTo: 'patient-tab1',
           pathMatch: 'full'
