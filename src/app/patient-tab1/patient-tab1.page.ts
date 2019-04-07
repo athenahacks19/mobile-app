@@ -19,4 +19,12 @@ export class PatientTab1Page implements OnInit {
     });
   }
 
+  doRefresh(event: any) {
+    this.dataService.get('1234')
+    .then((user: User) => {
+      this.user = user;
+      event.target.complete();
+    });
+  }
+
 }
