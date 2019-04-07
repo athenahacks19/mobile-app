@@ -4,11 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div class="main">
     <div class="chat-box">
       <div class="message-area">
         <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
+          <!-- <div>
+            <img class="avatar" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </div> -->
           <p>{{message.text}}</p>
         </div>
       </div>
