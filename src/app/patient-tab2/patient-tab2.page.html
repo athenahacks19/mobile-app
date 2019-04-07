@@ -5,5 +5,16 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
+  <ion-card *ngFor="let image of images">
+    <ion-card-content>
+      <b>{{ image.description | titlecase }}</b>
+    </ion-card-content>
+    <img [src]="image.image" class="card-image">
+  </ion-card>
 </ion-content>

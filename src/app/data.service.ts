@@ -9,10 +9,25 @@ interface SentimentResult {
   }[];
 }
 
+interface DescribeResult {
+  description: {
+    tags: string[];
+    captions: {
+      text: string;
+    }[];
+  };
+}
+
+interface Image {
+  image: string;
+  description: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  savedImages: Image[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +41,7 @@ export class DataService {
         'Ocp-Apim-Subscription-Key': environment.csKey
       })
     };
-    return this.http.post(`${environment.csServer}//text/analytics/v2.0/sentiment`, {
+    return this.http.post(`${environment.csServer}/text/analytics/v2.0/sentiment`, {
       documents: [
         {
           language: 'en',
@@ -37,5 +52,27 @@ export class DataService {
     }, httpOptions)
     .toPromise()
     .then((result: SentimentResult) => result.documents[0].score);
+  }
+
+  async describeImage(image: string) {
+    const imageRes = await fetch(image);
+    const blob = await imageRes.blob();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/octet-stream',
+        'Ocp-Apim-Subscription-Key': environment.csKey
+      }),
+    };
+    const describeResult = await this.http.post(`${environment.csServer}/vision/v1.0/describe`, blob, httpOptions)
+    .toPromise() as DescribeResult;
+    return describeResult.description.captions[0].text;
+  }
+
+  saveImage(image: string, description: string) {
+    this.savedImages.push({ image, description });
+  }
+
+  getImages() {
+    return this.savedImages;
   }
 }
