@@ -12,6 +12,7 @@ import { User } from '../interfaces';
 export class ParentTab1Page implements OnInit {
   map: atlas.Map;
   patientMarker: atlas.HtmlMarker;
+  heartRate: string;
 
   constructor(
     private dataService: DataService
@@ -53,6 +54,9 @@ export class ParentTab1Page implements OnInit {
         this.map.setCamera({
           center: [lon, lat]
         });
+      }
+      if (user.bpm) {
+        this.heartRate = user.bpm;
       }
     });
   }
