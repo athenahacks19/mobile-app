@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    SpeechRecognition
+    SpeechRecognition,
   ],
   bootstrap: [AppComponent]
 })
