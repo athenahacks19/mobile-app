@@ -42,7 +42,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'patient',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   }
