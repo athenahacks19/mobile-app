@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as atlas from 'azure-maps-control';
 import { environment } from '../../environments/environment';
+import { DataService } from '../data.service';
+import { User } from '../interfaces';
 
 @Component({
   selector: 'app-parent-tab1',
@@ -8,11 +10,14 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./parent-tab1.page.scss'],
 })
 export class ParentTab1Page implements OnInit {
+  map: atlas.Map;
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
-    const map = new atlas.Map('myMap', {
+    this.map = new atlas.Map('myMap', {
       center: [-122.33, 47.6],
       zoom: 12,
       authOptions: {
@@ -21,7 +26,20 @@ export class ParentTab1Page implements OnInit {
       },
       autoResize: true
     });
-    map.resize(1000, 300);
+
+    this.getUser();
+    setInterval(() => {
+      this.getUser();
+    }, 1000);
+  }
+
+  getUser() {
+    this.dataService.get('1234')
+    .then((user: User) => {
+      this.map.setCamera({
+        center: [ Number(user.location.lon), Number(user.location.lat) ]
+      });
+    });
   }
 
 }
