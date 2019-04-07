@@ -7,6 +7,16 @@
 
 }
 
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../../assets/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 ion-content{
     --background: var(--ion-background-color,linear-gradient(#ffffff, #b1d6ff));
 }
@@ -14,7 +24,7 @@ ion-content{
 h1 {
     font-size: 2em;
     margin: 0 10px 20px 10px;
-    font-family: 'Montserrat';
+    font-family: 'montserratregular';
     color: #467aff;
     text-align:center
 }
@@ -63,5 +73,5 @@ button.button-native{
     padding: 10px;
     margin: 5px;
     color: #467aff;
-    font-family: 'Montserrat'
+    font-family: 'montserratregular'
 }
