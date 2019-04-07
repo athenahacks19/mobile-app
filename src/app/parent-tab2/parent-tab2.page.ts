@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { User, Slot } from '../interfaces';
 
 @Component({
   selector: 'app-parent-tab2',
@@ -6,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-tab2.page.scss'],
 })
 export class ParentTab2Page implements OnInit {
-  rows: any[] = [{}];
+  rows: Slot[] = [{}];
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.get('1234')
+    .then((user: User) => {
+      this.rows = user.schedule;
+    });
   }
 
   addRow() {
@@ -18,7 +24,7 @@ export class ParentTab2Page implements OnInit {
   }
 
   submit() {
-    console.log(this.rows)
+    this.dataService.saveSchedule('1234', this.rows);
   }
 
 }
