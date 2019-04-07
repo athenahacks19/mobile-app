@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: 'patient', loadChildren: './patient-tabs/patient-tabs.module#PatientTabsPageModule' },
   { path: 'parent', loadChildren: './parent-tabs/parent-tabs.module#ParentTabsPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'patient', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -5,5 +5,24 @@
 </ion-header>
 
 <ion-content padding>
-
+  <div class="main">
+    <div class="chat-box">
+      <div class="message-area">
+        <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
+          <p>{{message.text}}</p>
+        </div>
+      </div>
+      <div class="emo-area">
+        <!-- emoji-panel component comes here -->
+      </div>
+      <div class="input-area">
+        <form name="messageForm" #messageForm="ngForm">
+          <ion-input type="text" name="message" id="message" class="input" [(ngModel)]="message" placeholder="Say something nice..."></ion-input>
+          <ion-fab-button class="send-icon" (click)="sendMessage()">
+            <ion-icon name="md-send"></ion-icon>
+          </ion-fab-button>
+        </form>
+      </div>
+    </div>
+  </div>
 </ion-content>
