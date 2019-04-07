@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { v4 } from 'uuid';
-import { PusherService } from '../pusher.service';
 import { DirectLineService } from '../direct-line.service';
 
 interface Message {
