@@ -7,8 +7,9 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Text</ion-label>
-    <ion-input [formControl]="myText"></ion-input>
+    <ion-textarea [formControl]="myText" rows="5"></ion-textarea>
   </ion-item>
+  <ion-button (click)="talk()" expand="block">Talk</ion-button>
   <ion-button (click)="submit()" expand="block">Submit</ion-button>
   <ng-container *ngIf="lastScore">
     <span *ngIf="lastScore >= 0.75">
