@@ -11,6 +11,10 @@
     </ion-fab-button>
   </ion-fab>
 
+  <p *ngIf="images.length === 0">
+    Nothing here yet!
+  </p>
+
   <ion-card *ngFor="let image of images">
     <ion-card-content>
       <b>{{ image.description | titlecase }}</b>
