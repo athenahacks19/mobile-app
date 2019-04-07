@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { Camera} from '@ionic-native/camera/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SpeechRecognition,
+    Camera,
   ],
   bootstrap: [AppComponent]
 })
