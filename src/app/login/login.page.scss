@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'montserratlight';
+    src: url('../../assets/montserrat/montserrat-light-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../../assets/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'montserratsemibold';
+    src: url('../../assets/montserrat/montserrat-semibold-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ion-content {
+    --background: var(--ion-background-color,linear-gradient(#a6f9ff, #2c62ff));
+}
+
+.app-title, .login {
+    text-align: center
+}
+
+.form{
+    text-align:center;
+    margin: 0 auto;
+}
+
+#username, #password{
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    font-family: 'Montserrat'
+}
+
+#username::placeholder, #password::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat'
+}
+
+ion-button{
+    --color: white;
+    font-family: 'Montserrat';
+}
+
+.logo{
+    margin: 10px;
+    margin-top: 30%
+}
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0 10px 20px 10px;
+    font-family: 'Montserrat';
+    color: #001e6b
+}
