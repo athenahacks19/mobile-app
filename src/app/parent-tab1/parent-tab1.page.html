@@ -5,5 +5,21 @@
 </ion-header>
 
 <ion-content>
-  <div id="myMap"></div>
+  <div class="container">
+    <div id="myMap"></div>
+    <div class="info-container">
+      <div class="column first">
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <span class="heartrate">{{ heartRate }}</span>
+      </div>
+
+      <div class="column second">
+        <ion-card color="light">
+          <ion-card-content>
+            Hello
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
 </ion-content>
