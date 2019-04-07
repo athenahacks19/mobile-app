@@ -13,6 +13,7 @@ export class ParentTab1Page implements OnInit {
   map: atlas.Map;
   patientMarker: atlas.HtmlMarker;
   heartRate: string;
+  anxious = false;
 
   constructor(
     private dataService: DataService
@@ -58,6 +59,7 @@ export class ParentTab1Page implements OnInit {
       if (user.bpm) {
         this.heartRate = user.bpm;
       }
+      this.anxious = user.alert;
     });
   }
 

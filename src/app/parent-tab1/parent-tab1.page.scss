@@ -41,12 +41,15 @@ ion-content {
   }
 
   .second {
-    flex: 2;
-    padding-right: 10px;
+    flex: 1;
 
-    ion-card {
-      height: 100%;
-      width: 100%;
+    img {
+      height: 32px;
+    }
+
+    .status {
+      font-size: 32px;
+      opacity: 0.625;
     }
   }
 }

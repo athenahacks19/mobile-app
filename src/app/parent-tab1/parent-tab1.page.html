@@ -14,11 +14,8 @@
       </div>
 
       <div class="column second">
-        <ion-card color="light">
-          <ion-card-content>
-            Hello
-          </ion-card-content>
-        </ion-card>
+        <img [src]="anxious ? 'assets/bad.png' : 'assets/good.png'">
+        <span class="status">{{ anxious ? 'Anxious' : 'Good' }}</span>
       </div>
     </div>
   </div>

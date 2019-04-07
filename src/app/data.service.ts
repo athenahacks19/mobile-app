@@ -75,4 +75,8 @@ export class DataService {
   getImages() {
     return this.savedImages;
   }
+
+  saveSchedule(userId: string, schedule: any[]) {
+    return this.http.post(`${environment.server}/schedule?userId=${userId}`, schedule).toPromise();
+  }
 }

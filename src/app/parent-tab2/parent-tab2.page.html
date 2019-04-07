@@ -5,7 +5,6 @@
   <div *ngFor="let row of rows; let i = index" style="text-align: center">
       <ion-input [(ngModel)]="rows[i].time" placeholder="Time" id="time" name="time"></ion-input>
       <ion-input [(ngModel)]="rows[i].activity" placeholder="Activity" id="activity" name="time"></ion-input>
-      <input onclick="addRow(this.form);" type="button"/>
   </div>
   <ion-button fill=clear (click)="addRow()" style="float: right; padding: 1px; height: 20px; text-align: right">+ Add more</ion-button>
   <br>
