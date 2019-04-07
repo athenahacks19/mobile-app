@@ -44,14 +44,16 @@ export class ParentTab1Page implements OnInit {
   getUser() {
     this.dataService.get('1234')
     .then((user: User) => {
-      const lat = Number(user.location.lat);
-      const lon = Number(user.location.lon);
-      this.patientMarker.setOptions({
-        position: [lon, lat]
-      });
-      this.map.setCamera({
-        center: [lon, lat]
-      });
+      if (user.location) {
+        const lat = Number(user.location.lat);
+        const lon = Number(user.location.lon);
+        this.patientMarker.setOptions({
+          position: [lon, lat]
+        });
+        this.map.setCamera({
+          center: [lon, lat]
+        });
+      }
     });
   }
 
