@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../../assets/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../assets/montserrat/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ion-content{
+    --background: var(--ion-background-color,linear-gradient(#ffffff, #b1d6ff));
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0 10px 20px 10px;
+    font-family: 'montserratregular';
+    color: #467aff;
+    text-align:center
+}
+th, td {
+    font-size: 1em;
+    font-family: 'montserratregular';
+    color: #ffffff;
+    text-align:center;
+    padding: 2px;
+}
+
+td{
+    color: #000000;
+}
+
+thead {
+    background-color: #467aff;
+    color: white;
+}
+
+table{
+    max-width: 100%;
+}

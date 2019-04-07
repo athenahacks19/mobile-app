@@ -5,5 +5,20 @@
 </ion-header>
 
 <ion-content padding>
+  <h1>Today's Schedule</h1>
 
+  <table style="width:100%; text-align: center" border="1px">
+      <thead>
+          <tr>
+              <th>Time</th>
+              <th>Activity</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let row of user.schedule; let i = index">
+              <td>{{user.schedule[i].time}}</td>
+              <td>{{user.schedule[i].activity}}</td>
+          </tr>
+        </tbody>
+  </table>
 </ion-content>
