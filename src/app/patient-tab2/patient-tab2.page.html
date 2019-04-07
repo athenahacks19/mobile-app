@@ -13,7 +13,7 @@
 
   <ion-card *ngFor="let image of images">
     <ion-card-content>
-      {{ image.description | titlecase }}
+      <b>{{ image.description | titlecase }}</b>
     </ion-card-content>
     <img [src]="image.image" class="card-image">
   </ion-card>
