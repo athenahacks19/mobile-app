@@ -29,52 +29,62 @@ ion-content {
     --background: var(--ion-background-color,linear-gradient(#a6f9ff, #2c62ff));
 }
 
-.app-title, .login {
-    text-align: center
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    padding: 20px;
 }
 
-.form{
-    text-align:center;
-    margin: 0 auto;
+.app-title {
+    font-size: 14px;
+    margin-top: 20px; 
 }
 
-#username, #password{
-    background: transparent;
-    border: 1px solid #ffffff;
-    border-radius: 25px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    font-family: 'Montserrat'
+ion-item {
+    --background: transparent;
+    --border-radius: 50px;
+    //--border-color: black;
+    --border-width: 1px;
 }
-
-#username::placeholder, #password::placeholder{
-    color: rgba(255, 255, 255, 0.5);
-    font-family: 'Montserrat'
+// ion-item:first-child {
+//     border-top-left-radius: 5px;
+//     border-top-right-radius: 5px;
+//     color: red;
+// }
+// ion-item:last-child {
+//     border-bottom-left-radius: 5px;
+//     border-bottom-right-radius: 5px;
+//     margin: auto;
+// }
+ion-item.item {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    .label {
+      width: 10%;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 1.2em;
+    }
 }
 
 ion-button{
     --color: white;
-    font-family: 'Montserrat';
+    // font-family: 'Montserrat';
 }
 
 .logo{
-    margin: 10px;
-    margin-top: 20%
+    margin-bottom: 20px;
 }
-#logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 h1 {
     font-size: 3em;
     margin: 0 10px 20px 10px;
-    font-family: 'Montserrat';
+    //font-family: 'Montserrat';
     color: #001e6b
 }
 
-.sign-up{
-    position: fixed; left: 50%; bottom: 5px; transform: translate(-50%, -50%); margin: 0 auto;
-}
+// .sign-up{
+//     position: fixed; left: 50%; bottom: 5px; transform: translate(-50%, -50%); margin: 0 auto;
+// }

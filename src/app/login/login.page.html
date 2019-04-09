@@ -4,35 +4,40 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content class="bg-style">
+<ion-content>
+  <ion-grid>
+    <ion-row class="container padding" text-center>
+      <ion-col class="logo" center>
+        <img src="../../assets/puzzle3.png" alt="Logo" id="logo"  style="width: auto; height:120px">
+      </ion-col>
+      <ion-col class="app-title">
+        <h1>AUTISM CARE</h1>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label><ion-icon name="person" slot="start"></ion-icon></ion-label>
+          <ion-input type="email" placeholder="Email"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label><ion-icon name="lock" item-left></ion-icon></ion-label>
+          <ion-input type="password" placeholder="Password"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col class="login">
+        <ion-button routerLink="/parent" fill="clear">Login as <br/>Parent</ion-button>
+        <ion-button routerLink="/patient" fill="clear">Login as <br/>Patient</ion-button>
+      </ion-col>
 
-  <div class="logo">
-    <img src="../../assets/puzzle3.png" alt="Logo" id="logo" style="width:40%;height:auto;">
-  </div>
+      <ion-col class="sign-up">
+        <ion-button routerLink="" fill="clear" >Don't have an account? <br/>Sign up</ion-button>
+      </ion-col>
+    </ion-row>
+  
 
-  <div class="app-title">
-    <h1>AUTISM CARE</h1>
-  </div>
+  </ion-grid>
 
-  <form>
-    <div class="form">
-      <label for="username"></label>
-      <input name="username" id="username" type="text" placeholder="Username" required>
-    </div>
-    <!-- <br> -->
-    <div class="form">
-        <label for="password"></label>
-        <input id="password" type="password" placeholder="Password">
-    </div>
-  </form>
 
-  <div class="login">
-    <ion-button routerLink="/parent" fill="clear">Login as <br/>Parent</ion-button>
-    <ion-button routerLink="/patient" fill="clear">Login as <br/>Patient</ion-button>
-  </div>
-
-  <div class="sign-up" style="margin: 0 auto; text-align: center">
-  <ion-button routerLink="" fill="clear" >Don't have an account? <br/>Sign up</ion-button>
-  </div>
 
 </ion-content>
