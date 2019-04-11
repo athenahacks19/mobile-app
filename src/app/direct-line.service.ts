@@ -26,8 +26,6 @@ export class DirectLineService {
 
    subscribeBot() {
     // Watch incoming messages from our bot
-
-    // 'BotName' will be sent by your bot
     return directLine.activity$;
   }
 }

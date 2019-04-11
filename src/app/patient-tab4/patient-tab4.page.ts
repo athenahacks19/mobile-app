@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { v4 } from 'uuid';
 import { DirectLineService } from '../direct-line.service';
+import * as moment from 'moment';
 
 interface Message {
-  id?: string;
+  id: string;
   text: string;
-  timeStamp?: Date;
+  timestamp: string;
   type: string;
+  avatar?:string;
 }
 
 @Component({
@@ -24,15 +26,20 @@ export class PatientTab4Page implements OnInit {
   sendMessage() {
     if (this.message !== '') {
       const message = {
-        id: v4(),
+        id: null,
         type: 'outgoing',
-        text:this.message
+        text:this.message,
+        timestamp: null
       }
       this.messages = this.messages.concat(message);
-      this.message = '';
+      let index = this.messages.length - 1;
       this.directLine.sendMessageToBot(this.message)
-      .subscribe(
-        id => console.log("Posted activity, assigned ID ", id),
+      .subscribe(activity => {
+        console.log("Posted activity, assigned ID ", activity.id)
+        this.messages[index].id = activity.id;
+        this.messages[index].timestamp = moment(activity.timestamp).format('h:mm a');
+        this.message = '';
+      },
         error => console.log('Error posting activity', error)
       );
       
@@ -56,10 +63,13 @@ export class PatientTab4Page implements OnInit {
           const mes = {
             id: message.id,
             type: 'incoming',
-            text: (<Message>message).text
+            text: (<Message><unknown>message).text,
+            timestamp: moment((<Message><unknown>message).timestamp).format('h:mm a'),
+            avatar:  "https://i.imgur.com/8epfNKB.png"
           }
+          console.log(mes);
           this.messages = this.messages.concat(mes);
-        }
-      });
+      }
+    });
   }
 }

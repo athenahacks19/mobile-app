@@ -9,6 +9,9 @@
       position: relative;
       background: #cdddf8;
       .message-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         max-height: 90%;
         height: 90%;
         overflow: auto;
@@ -20,13 +23,7 @@
         .message {
           display: flex;
           flex-direction: row;
-          .avatar{
-            border-radius: 50px;
-            height: 40px;
-            width: 40px;
-          }
-
-          p {
+          .bubble {
             color: #8a898b;
             font-size: 13px;
             font-weight: bold;
@@ -36,17 +33,22 @@
             padding: 10px 15px 10px 7px;
             margin: 5px 0;
             background: white;
+            p {
+              margin-top: 0;
+            }
+          }
+          ion-avatar {
+            align-self: flex-end;
+            margin-right: 10px;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
           }
         }
         .message.incoming {
-          display: flex;
-          //flex-direction: column;
-          padding-right: 10px;
-          justify-content: flex-start;
-          align-items: flex-start;
-          p {
+          .bubble {
             color: white;
-            border-radius: 0 11px 11px 11px;
+            border-radius: 15px 15px 15px 0px;
             background: #3880ff;
           }
         }
@@ -56,8 +58,9 @@
           padding-left: 10px;
           justify-content: flex-end;
           align-items: flex-end;
-          p {
-            border-radius: 11px 11px 0 11px;
+          .bubble {
+            margin-left: auto;
+            border-radius: 15px 15px 0 15px;
           }
         }
       }

@@ -8,12 +8,15 @@
   <div class="main">
     <div class="chat-box">
       <div class="message-area">
-        <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
-          <!-- <div>
-            <img class="avatar" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </div> -->
-          <p>{{message.text}}</p>
-        </div>
+        <ion-item class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)" lines="none">
+          <ion-avatar *ngIf="message.avatar">
+            <ion-img class="avatar" [src]="message.avatar"></ion-img>
+          </ion-avatar>
+          <div class="bubble">
+            <p>{{message.text}}</p>
+            <span>{{message.timestamp}}</span>
+          </div>
+        </ion-item>
       </div>
       <div class="emo-area">
         <!-- emoji-panel component comes here -->
