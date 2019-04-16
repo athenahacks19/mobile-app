@@ -7,17 +7,18 @@
 <ion-content>
   <div class="main">
     <div class="chat-box">
-      <div class="message-area">
+      <ion-content class="message-area">
         <ion-item class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)" lines="none">
           <ion-avatar *ngIf="message.avatar">
             <ion-img class="avatar" [src]="message.avatar"></ion-img>
           </ion-avatar>
           <div class="bubble">
             <p>{{message.text}}</p>
-            <span>{{message.timestamp}}</span>
+            <ion-spinner name="lines-small" *ngIf="!message.timestamp"></ion-spinner>
+            <span *ngIf="message.timestamp">{{message.timestamp}}</span>
           </div>
         </ion-item>
-      </div>
+      </ion-content>
       <div class="emo-area">
         <!-- emoji-panel component comes here -->
       </div>
