@@ -26,7 +26,7 @@
 }
 
 ion-content {
-    --background: var(--ion-background-color,linear-gradient(#a6f9ff, #2c62ff));
+    --background: var(--ion-background-color,linear-gradient(15deg, #13547a 0%, #80d0c7 100%));
 }
 
 .container {
@@ -45,19 +45,9 @@ ion-content {
 ion-item {
     --background: transparent;
     --border-radius: 50px;
-    //--border-color: black;
     --border-width: 1px;
 }
-// ion-item:first-child {
-//     border-top-left-radius: 5px;
-//     border-top-right-radius: 5px;
-//     color: red;
-// }
-// ion-item:last-child {
-//     border-bottom-left-radius: 5px;
-//     border-bottom-right-radius: 5px;
-//     margin: auto;
-// }
+
 ion-item.item {
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 50px;

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { v4 } from 'uuid';
 import { DirectLineService } from '../direct-line.service';
 import * as moment from 'moment';
+import { ConnectionStatus } from 'botframework-directlinejs';
 
 interface Message {
   id: string;
@@ -17,12 +18,39 @@ interface Message {
   templateUrl: './patient-tab4.page.html',
   styleUrls: ['./patient-tab4.page.scss'],
 })
+
 export class PatientTab4Page implements OnInit {
+  @ViewChild('messageArea') messageArea;
   messages: Array<Message> = [];
   message: string = '';
   lastMessageId;
+  newConvo =true;
 
-  constructor(private http: HttpClient, private directLine: DirectLineService) { }
+  constructor(private http: HttpClient, private directLine: DirectLineService) {
+    this.directLine.subscribeBot()
+    .subscribe(
+      message => {
+        console.log(message);
+        if(message.from.id === 'autis-bot'){
+          const mes = {
+            id: message.id,
+            type: 'incoming',
+            text: (<Message><unknown>message).text,
+            timestamp: moment((<Message><unknown>message).timestamp).format('h:mm a'),
+            avatar:  "assets/bot-chat.png"
+          }
+          this.addMessage(mes);
+      }
+    });
+
+  }
+
+  addMessage(message){
+    this.messages = this.messages.concat(message);
+    setTimeout(() => this.messageArea.scrollToBottom(), 100)
+    
+  }
+
   sendMessage() {
     if (this.message !== '') {
       const message = {
@@ -31,7 +59,7 @@ export class PatientTab4Page implements OnInit {
         text:this.message,
         timestamp: null
       }
-      this.messages = this.messages.concat(message);
+      this.addMessage(message);
       let index = this.messages.length - 1;
       this.directLine.sendMessageToBot(this.message)
       .subscribe(activity => {
@@ -54,22 +82,15 @@ export class PatientTab4Page implements OnInit {
     };
   }
 
+  startConvo(){
+    this.directLine.connectBot()
+    .subscribe(event=>{
+      console.log(event);
+    })
+    this.newConvo = false;
+  }
+
   ngOnInit() {
-    this.directLine.subscribeBot()
-    .subscribe(
-      message => {
-        console.log(message);
-        if(message.from.id === 'autis-bot'){
-          const mes = {
-            id: message.id,
-            type: 'incoming',
-            text: (<Message><unknown>message).text,
-            timestamp: moment((<Message><unknown>message).timestamp).format('h:mm a'),
-            avatar:  "https://i.imgur.com/8epfNKB.png"
-          }
-          console.log(mes);
-          this.messages = this.messages.concat(mes);
-      }
-    });
+    
   }
 }

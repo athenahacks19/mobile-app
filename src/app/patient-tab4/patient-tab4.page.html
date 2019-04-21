@@ -6,25 +6,37 @@
 
 <ion-content>
   <div class="main">
-    <div class="chat-box">
-      <ion-content class="message-area">
-        <ion-item class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)" lines="none">
-          <ion-avatar *ngIf="message.avatar">
-            <ion-img class="avatar" [src]="message.avatar"></ion-img>
-          </ion-avatar>
-          <div class="bubble">
-            <p>{{message.text}}</p>
-            <ion-spinner name="lines-small" *ngIf="!message.timestamp"></ion-spinner>
-            <span *ngIf="message.timestamp">{{message.timestamp}}</span>
-          </div>
-        </ion-item>
+    <div *ngIf="newConvo" class="newConvoBox">
+      <div class="bot-intro-circle">
+        <img src="assets/bot-intro.png" class="bot-intro-img">
+      </div>
+      <div class="bot-intro-text">
+        <h1>Welcome</h1>
+        <p>Chat with Autis, your bot friend designed to help you manage your anxiety.</p>
+      </div>
+      <ion-button shape="round" expand="block" fill="outline" (click)="startConvo()">Start Conversation</ion-button>
+    </div>
+    <div class="chat-box" *ngIf="!newConvo">
+      <ion-content class="message-area"  #messageArea>
+        <div class="message-area-inner">
+          <ion-item class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)" lines="none">
+            <ion-avatar *ngIf="message.avatar">
+              <ion-img class="avatar" [src]="message.avatar"></ion-img>
+            </ion-avatar>
+            <div class="bubble">
+              <p>{{message.text}}</p>
+              <ion-spinner name="lines-small" *ngIf="!message.timestamp"></ion-spinner>
+              <span *ngIf="message.timestamp">{{message.timestamp}}</span>
+            </div>
+          </ion-item>
+        </div>
       </ion-content>
       <div class="emo-area">
         <!-- emoji-panel component comes here -->
       </div>
       <div class="input-area">
         <form name="messageForm" #messageForm="ngForm">
-          <ion-input type="text" name="message" id="message" class="input" [(ngModel)]="message" placeholder="Say something nice..."></ion-input>
+          <ion-input type="text" name="message" id="message" class="input" [(ngModel)]="message" placeholder="Say something nice..." (keyup.enter)="sendMessage()"></ion-input>
           <ion-fab-button class="send-icon" (click)="sendMessage()">
             <ion-icon name="md-send"></ion-icon>
           </ion-fab-button>

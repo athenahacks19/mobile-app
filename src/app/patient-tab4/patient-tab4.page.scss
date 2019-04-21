@@ -3,19 +3,55 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    .chat-box {
-      width: 100%;
+    background-color: #f6f4f9;
+    .newConvoBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 69vw;
       height: 100%;
-      position: relative;
-      background: #cdddf8;
-      .message-area {
+      justify-content: space-evenly;
+      .bot-intro-circle {
+        background-color: #13A1BC;
+        border-radius: 50%;
+        width: 200px;
+      }
+      .bot-intro-img {
+        padding: 20px;
+        object-fit: contain;
+      }
+      .bot-intro-text{
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        max-height: 90%;
+        align-items: center;
+        p {
+          text-align: center;
+          color: #8a898b;
+        }
+      }
+    }
+
+    .chat-box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      position: relative;//#8eddda
+      background: #a0dfee;
+      ion-content {
+        --background: transparent;
+      }
+      .message-area {
+        max-height: calc(100% - 65px);
         height: 90%;
-        overflow: auto;
         padding: 15px 10px;
+
+        .message-area-inner {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          min-height: 100%;
+        }
         
         ion-item {
             --background: transparent;
@@ -32,7 +68,7 @@
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
             padding: 10px 15px 10px 7px;
             margin: 5px 0;
-            background: white;
+            background: #f6f4f9;
             p {
               margin-top: 0;
             }
@@ -40,16 +76,13 @@
           ion-avatar {
             align-self: flex-end;
             margin-right: 10px;
-            border-radius: 50%;
-            height: 35px;
-            width: 35px;
           }
         }
         .message.incoming {
           .bubble {
-            color: white;
+            color: #f6f4f9;
             border-radius: 15px 15px 15px 0px;
-            background: #3880ff;
+            background:  #03acce;
           }
         }
         .message.outgoing {
@@ -78,9 +111,9 @@
         left: 0;
         width: 100%;
         height: 50px;
-        border: 2px solid #3880ff;
+        border: 2px solid #13A1BC;
         border-radius: 25px;
-        background: white;
+        background: #f6f4f9;
         margin: 8px 0px;
         form {
           display: flex;

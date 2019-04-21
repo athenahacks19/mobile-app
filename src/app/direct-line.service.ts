@@ -24,6 +24,21 @@ export class DirectLineService {
     });
   }
 
+  connectBot(){
+    return directLine
+    .postActivity({
+      from: { id: "uuid"},
+      name: "startConversation",
+      type: 'event',
+      value: true,
+    });
+  }
+
+  checkConnection(){
+    //console.log(directLine.getSessionId())
+    return directLine.connectionStatus$;
+  }
+
    subscribeBot() {
     // Watch incoming messages from our bot
     return directLine.activity$;
